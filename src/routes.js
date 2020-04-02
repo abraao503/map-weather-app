@@ -3,6 +3,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import Main from './pages/Main';
+import Details from './pages/Details';
 
 const Routes = createAppContainer(
     createStackNavigator({
@@ -11,6 +12,12 @@ const Routes = createAppContainer(
             navigationOptions:{
                 title: 'Map Weather'
             },
+        },
+        Details: {
+            screen: Details,
+            navigationOptions: {
+                title: 'Detalhes do clima'
+            }
         }
     },
     {
