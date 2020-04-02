@@ -6,7 +6,7 @@ import api from '../../services/api';
 
 import styles from './styles';
 
-function Main(){
+function Main({ navigation }){
     const key = '7bbd4f34369c343ba71a434eae903b15';
 
     const [region, setRegion] = useState({
@@ -23,16 +23,17 @@ function Main(){
     }, [marker])
 
     async function getDataAPI(){
-        const {data} = await api.get(`./weather?lat=${marker.latitude}&lon=${marker.longitude}&appid=${key}`);
+        const {data} = await api.get(`./weather?lat=${marker.latitude}&lon=${marker.longitude}&appid=${key}&lang=pt_br`);
         console.log(data);
         const [{description}] = data.weather;
-        const main = data.main;
-        const name = data.name;
+        const {main, name, sys, wind} = data;
         setDataPosition({
+            country: sys.country,
             description,
+            humidity: main.humidity,
             name,
-            temp: main.temp,
-            humidity: main.humidity
+            temperature: Math.round(main.temp - 273.15),
+            windSpeed: Math.round(wind.speed * 3.6),
         });
     }
 
@@ -53,11 +54,13 @@ function Main(){
         {
             marker &&
             <Marker coordinate={marker}>
-                <Callout>
+                <Callout onPress={()=>{
+                    navigation.navigate('Details', { dataPosition })
+                }}>
                     <View style={styles.callout}>
                         <Text style={styles.name}>{dataPosition.name}</Text>
                         <Text style={styles.description}>{dataPosition.description}</Text>
-                        <Text style={styles.temp}>{dataPosition.temp}</Text>
+                        <Text style={styles.temp}>{dataPosition.temperature}°</Text>
                     </View>
                 </Callout>
             </Marker>
