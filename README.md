@@ -12,6 +12,6 @@ Em resumo, a aplicação permite que você escolha um ponto no mapa, veja inform
 
 ## Telas
 
+<img  width="200" height="400" src="https://user-images.githubusercontent.com/51488383/78365629-57142d00-758d-11ea-91b9-43ec41d42a7c.png"><span style="padding-left:2px"></span>
 
-![Tela 1](https://user-images.githubusercontent.com/51488383/78365629-57142d00-758d-11ea-91b9-43ec41d42a7c.png)
-![Tela 2](https://user-images.githubusercontent.com/51488383/78365652-5e3b3b00-758d-11ea-99a3-786167f1e88d.png)
+<img  width="200" height="400" src="https://user-images.githubusercontent.com/51488383/78365652-5e3b3b00-758d-11ea-99a3-786167f1e88d.png"><span style="padding-left:2px"></span>
